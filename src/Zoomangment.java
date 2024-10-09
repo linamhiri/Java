@@ -19,12 +19,26 @@ public class Zoomangment {
 
         //seance 2
         Animal lion = new Animal("Felidae", "Lion", 4 , true);
+        Animal tiger = new Animal("Felidae", "Tiger", 3, true);
         System.out.println(lion);
+
+        //seance 3
+        System.out.println("Ajout du lion: " + myZoo.addAnimal(lion)); // true
+        System.out.println("Ajout du lion (doublon): " + myZoo.addAnimal(lion)); // false, already added
+        System.out.println("Ajout du tigre: " + myZoo.addAnimal(tiger)); // true
 
         Zoo myZoo = new Zoo("belvedere", "tunis" , 20);
         myZoo.displayZoo();
 
-        System.out.println(myZoo);
+        System.out.println("Recherche du lion: Index " + myZoo.searchAnimal("Lion")); // Should return the index
+        System.out.println("Recherche d'un animal non existant: Index " + myZoo.searchAnimal("Elephant")); // -1
+
+        System.out.println("Suppression du tigre: " + myZoo.removeAnimal(tiger)); // true
+        myZoo.displayZoo(); // Display after removal
+
+        System.out.println("Le zoo est plein? " + myZoo.isZooFull());
+
+        scanner.close();
 
 
     }
